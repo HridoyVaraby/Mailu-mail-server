@@ -13,7 +13,7 @@ services:
     depends_on:
       - resolver
     dns:
-      - 192.168.203.254
+      - 172.31.203.254
 
   # Core services
   front:
@@ -45,7 +45,7 @@ services:
     depends_on:
       - resolver
     dns:
-      - 192.168.203.254
+      - 172.31.203.254
 
   resolver:
     image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}unbound:${MAILU_VERSION:-2024.06}
@@ -57,7 +57,7 @@ services:
     restart: always
     networks:
       default:
-        ipv4_address: 192.168.203.254
+        ipv4_address: 172.31.203.254
 
   admin:
     image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}admin:${MAILU_VERSION:-2024.06}
@@ -74,7 +74,7 @@ services:
       - redis
       - resolver
     dns:
-      - 192.168.203.254
+      - 172.31.203.254
 
   imap:
     image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}dovecot:${MAILU_VERSION:-2024.06}
@@ -93,7 +93,7 @@ services:
       - front
       - resolver
     dns:
-      - 192.168.203.254
+      - 172.31.203.254
 
   smtp:
     image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}postfix:${MAILU_VERSION:-2024.06}
@@ -110,7 +110,7 @@ services:
       - front
       - resolver
     dns:
-      - 192.168.203.254
+      - 172.31.203.254
 
   oletools:
     image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}oletools:${MAILU_VERSION:-2024.06}
@@ -125,7 +125,7 @@ services:
     depends_on:
       - resolver
     dns:
-      - 192.168.203.254
+      - 172.31.203.254
 
 
   antispam:
@@ -151,7 +151,7 @@ services:
       - antivirus
       - resolver
     dns:
-      - 192.168.203.254
+      - 172.31.203.254
 
   # Optional services
   antivirus:
@@ -208,7 +208,7 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.203.0/24
+        - subnet: 172.31.203.0/24
   radicale:
     driver: bridge
   webmail:
