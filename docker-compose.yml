@@ -208,7 +208,7 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 10.89.0.0/24
+        - subnet: 192.168.203.0/24
   radicale:
     driver: bridge
   webmail:
